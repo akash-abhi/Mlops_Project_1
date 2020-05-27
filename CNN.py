@@ -159,36 +159,3 @@ finally:
     f.close()
 
 
-# In[ ]:
-
-
-from keras.datasets import mnist
-import os
-(X_train,y_train),(X_test,y_test) = mnist.load_data()
-X_train=X_train.reshape(60000,28,28,1)
-X_test=X_test.reshape(10000,28,28,1)
-from keras.utils import to_categorical
-y_train = to_categorical(y_train)
-y_test = to_categorical(y_test)
-from keras.models import Sequential
-from keras.layers import Dense, Conv2D,Flatten
-model = Sequential()
-model.add(Conv2D(2, kernel_size=3, activation="relu",input_shape=(28,28,1)))
-try:
-   f=open("/layers.txt","r")
-   i = f.read()
-except:
-   print(end="")
-finally:
-    f.close()
-    print(i)
-
-    #i = int(i)
-n=4
-
-
-# In[45]:
-
-
-
-
